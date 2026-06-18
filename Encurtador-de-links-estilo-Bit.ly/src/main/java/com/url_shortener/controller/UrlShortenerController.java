@@ -49,7 +49,7 @@ public class UrlShortenerController {
         return UrlResponse.builder()
                 .code(urlMapping.getCode())
                 .originalUrl(urlMapping.getOriginalUrl())
-                .shortUrl("http://localhost8080/" + urlMapping.getCode())
+                .shortUrl("http://localhost:8080/" + urlMapping.getCode())
                 .accessCount(urlMapping.getAccessCount())
                 .createdAt(urlMapping.getCreatedAt())
                 .build();

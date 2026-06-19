@@ -18,4 +18,6 @@ public class UrlResponse {
     private String shortUrl;
     private Long accessCount;
     private LocalDateTime createdAt;
+    private LocalDateTime expiresAt;
+
 }

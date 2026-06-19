@@ -21,7 +21,7 @@ public class UrlShortenerController {
 
     @PostMapping("/urls")
     public ResponseEntity<UrlResponse> create(@RequestBody @Valid UrlRequest request) {
-        UrlMapping urlMapping = service.create(request.getOriginalUrl());
+        UrlMapping urlMapping = service.create(request.getOriginalUrl(), request.getExpiresAt());
         return ResponseEntity.status(HttpStatus.CREATED).body(toResponse(urlMapping));
     }
 
@@ -52,6 +52,7 @@ public class UrlShortenerController {
                 .shortUrl("http://localhost:8080/" + urlMapping.getCode())
                 .accessCount(urlMapping.getAccessCount())
                 .createdAt(urlMapping.getCreatedAt())
+                .expiresAt(urlMapping.getExpiresAt())
                 .build();
     }
 }
